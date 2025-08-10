@@ -1,0 +1,34 @@
+<h2>Available Rides</h2>
+
+<form [formGroup]="filterForm" class="filter-section">
+  <label>
+    Your Employee ID:
+    <input type="text" formControlName="employeeId" />
+  </label>
+
+  <label>
+    Filter by Vehicle:
+    <select formControlName="vehicleType">
+      <option value="">All</option>
+      <option value="Car">Car</option>
+      <option value="Bike">Bike</option>
+    </select>
+  </label>
+</form>
+
+<div class="ride-list">
+  <div *ngFor="let ride of filteredRides" class="ride-card">
+    <p><strong>Driver:</strong> {{ ride.employeeId }}</p>
+    <p>
+      <strong>Vehicle:</strong> {{ ride.vehicleType }} ({{ ride.vehicleNo }})
+    </p>
+    <p><strong>Seats Left:</strong> {{ ride.vacantSeats }}</p>
+    <p><strong>Time:</strong> {{ ride.time }}</p>
+    <p><strong>From:</strong> {{ ride.pickUpPoint }}</p>
+    <p><strong>To:</strong> {{ ride.destination }}</p>
+
+    <button (click)="bookRide(ride.id)" [disabled]="ride.vacantSeats === 0">
+      Book Ride
+    </button>
+  </div>
+</div>
