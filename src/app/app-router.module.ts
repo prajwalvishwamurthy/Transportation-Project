@@ -5,6 +5,11 @@ import { RideListComponent } from './ride-list/ride-list.component';
 
 const route: Routes = [
   {
+    path: '',
+    redirectTo: 'AddRideComponent',
+    pathMatch: 'full',
+  },
+  {
     path: 'add-ride',
     component: AddRideComponent,
   },
@@ -15,7 +20,7 @@ const route: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(route)],
+  imports: [RouterModule.forRoot(route, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRouting {}
