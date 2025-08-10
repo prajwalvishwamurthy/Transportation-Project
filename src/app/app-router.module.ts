@@ -6,7 +6,7 @@ import { RideListComponent } from './ride-list/ride-list.component';
 const route: Routes = [
   {
     path: '',
-    redirectTo: 'AddRideComponent',
+    redirectTo: 'add-ride',
     pathMatch: 'full',
   },
   {
